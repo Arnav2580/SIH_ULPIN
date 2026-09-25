@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4000:4000"
+    environment:
+      OFFICER_TOKEN: ${OFFICER_TOKEN:-}
+      NODE_ENV: production
+      DB_PATH: /app/data/bhudrishti.sqlite
+    volumes:
+      - registry-data:/app/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+volumes:
+  registry-data:
