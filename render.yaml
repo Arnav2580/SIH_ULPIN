@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bhudrishti-4d
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_PATH
+        value: /tmp/bhudrishti.sqlite

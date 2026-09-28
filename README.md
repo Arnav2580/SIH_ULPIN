@@ -179,6 +179,12 @@ docker compose start app
 
 Place an HTTPS reverse proxy in front of the loopback port for a hosted demo. The repository does not provision DNS, certificates, or a cloud account.
 
+## Free public demo on Render
+
+This repository includes a Render Blueprint in [`render.yaml`](render.yaml). To publish the read-only demo, sign in to [Render](https://render.com), connect this public GitHub repository, and create a Blueprint instance. Render builds the included Dockerfile and serves the frontend and API from one service. No officer token is configured, so administrative writes stay disabled.
+
+Render's free web services sleep after 15 minutes without traffic, may take about a minute to wake, and use ephemeral storage. The SQLite database is recreated from the synthetic seed when the service restarts, so this setup is suitable for public exploration only; reviews and audit changes do not persist. See the [deployment runbook](docs/DEPLOYMENT.md) before enabling write access or using real data.
+
 ## Demo walkthrough
 
 1. Open **City explorer** and switch between **2D**, **3D**, and **Split**.
